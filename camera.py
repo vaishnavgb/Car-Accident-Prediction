@@ -7,7 +7,7 @@ model = AccidentDetectionModel("model.json", 'model_weights.h5')
 font = cv2.FONT_HERSHEY_SIMPLEX
 
 def startapplication():
-    video = cv2.VideoCapture("istockphoto-948679414-640_adpp_is.mp4") # for camera use video = cv2.VideoCapture(0)
+    video = cv2.VideoCapture("demov.mp4")
     while True:
         ret, frame = video.read()
         gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -18,13 +18,9 @@ def startapplication():
             prob = (round(prob[0][0]*100, 2))
             
             #to beep when alert:
-            if(prob > 99):
+            if(prob == 100):
                 frequency = 8000
                 duration = 50
-                winsound.Beep(frequency,duration)
-            elif(prob > 97):
-                frequency = 2000
-                duration = 500
                 winsound.Beep(frequency,duration)
             cv2.rectangle(frame, (0, 0), (280, 40), (0, 0, 0), -1)
             cv2.putText(frame, pred+" "+str(prob), (20, 30), font, 1, (255, 255, 0), 2)

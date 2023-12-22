@@ -1,0 +1,14 @@
+name=input("Enter your name")
+sub1=int(input("enter marks of phyton:"))
+sub2=int(input("enter marks of cn:"))
+sub3=int(input("enter marks of os:"))
+total=sub1+sub2+sub3
+avg=total/3
+if(avg>60 or avg<70):
+    print("grade:c")
+elif(avg>70 or avg<80):
+    print("grade:b")
+elif(avg>80 or avg<100):
+    print("grade:A")
+else:
+ print("no grade")
